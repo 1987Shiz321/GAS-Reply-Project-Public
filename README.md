@@ -29,7 +29,7 @@ clasp login
 
     ```sh
     git clone <このリポジトリのURL>
-    cd gas-reply-system
+    cd GAS-Reply-Project-Public
     ```
 
 2.  **依存パッケージをインストールします。**
@@ -43,6 +43,8 @@ clasp login
 3.  **Google Apps Scriptプロジェクトの紐付け**
 
     `clasp`を使い、新規または既存のGoogle Apps Scriptプロジェクトに紐付けます。`.clasp.json`ファイルが既にリポジトリに含まれているため、クローンしたユーザーは通常この手順をスキップできますが、もし自分のプロジェクトに紐付け直す場合は以下を実行します。
+
+    *   **共通: 既存の`.clasp.json`を削除する**
 
     *   **新規プロジェクトの場合:**
         ```sh
@@ -67,6 +69,21 @@ clasp login
 5. **Google App Script APIを有効にする**
 
     https://script.google.com/home/usersettings にアクセスして、`Google Apps Script API`をオンにします。これがないとプッシュができません。
+
+6. **GAS用のダミー関数の編集**
+
+    Google App Scriptでトリガーを作成する際、関数が少なくとも一つ以上存在する必要があります。
+    `esbuild`でビルドする際、`JavaScript`ファイルの末尾にダミー関数を作成するように設計しています。
+    サンプルではメールを送信するためのに以下のような記述があります。
+
+    ソースコードを編集した後、必要であれば関数名を変更してください。
+    ```js
+    //esbuild.js
+    footer: {
+        // Google Apps Scriptの制約回避のため関数を追加
+        js: "function ReplyEmail(){}",
+    },
+    ```
 
 ## 使用方法
 
