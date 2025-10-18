@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f7fa;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #4CAF50, #45a049);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .header h1 {
+      margin: 0 0 10px 0;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .header p {
+      margin: 0;
+      opacity: 0.9;
+      font-size: 16px;
+    }
+
+    .content {
+      padding: 30px 20px;
+    }
+
+    .thank-you {
+      background-color: #e8f5e8;
+      border-left: 4px solid #4CAF50;
+      padding: 15px 20px;
+      margin: 0 0 25px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .thank-you p {
+      margin: 0;
+      color: #2e7d32;
+      font-weight: 750;
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background-color: #fafafa;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .info-table tr {
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .info-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .info-table td {
+      padding: 15px 20px;
+      vertical-align: top;
+    }
+
+    .info-table td:first-child {
+      background-color: #f0f0f0;
+      font-weight: 600;
+      color: #333;
+      width: 140px;
+      border-right: 2px solid #e0e0e0;
+    }
+
+    .info-table td:last-child {
+      color: #555;
+    }
+
+    .notice {
+      background-color: #fff3cd;
+      border: 1px solid #ffeaa7;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin: 25px 0;
+    }
+
+    .notice-title {
+      font-weight: 600;
+      color: #856404;
+      margin: 0 0 5px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center; /* 追加: flexアイテムを中央揃え */
+      text-align: center;   
+    }
+
+    .notice-title::before {
+      content: "";
+      margin-right: 0px;
+    }
+
+    /* 新しいセクションのスタイル */
+    .info-section {
+      background-color: #e3f2fd;
+      /* 青系の背景 */
+      border: 1px solid #d6edfd;
+      /* 青系のボーダー */
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin: 25px 0;
+      
+    }
+
+    .info-section-title {
+      font-weight: 600;
+      color: #1976d2;
+      /* 青系の文字色 */
+      margin: 0 0 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center; /* 追加: flexアイテムを中央揃え */
+      text-align: center;   
+    }
+
+    .info-section-title::before {
+      content: "";
+      /* 注意を促すアイコン */
+      margin-right: 0px;
+    }
+
+
+
+    .info-section ul {
+      margin: 15px 5px 15px 20px; /* ここを10pxから15pxに増やすか、さらに大きな値に調整 */
+      padding: 0;
+      list-style-type: decimal; /* 番号付きリスト */
+      color: #333;
+    }
+
+    .info-section li {
+      margin-bottom: 8px;
+    }
+
+    .info-section p {
+      margin: 0 0 10px 0;
+      color: #333;
+    }
+
+    .info-section a {
+      color: #1976d2;
+      text-decoration: none;
+    }
+
+    .info-section a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      background-color: #f8f9fa;
+      padding: 20px;
+      text-align: center;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .footer p {
+      margin: 0;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .timestamp {
+      text-align: right;
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 10px;
+        border-radius: 8px;
+      }
+
+      .header {
+        padding: 20px 15px;
+      }
+
+      .content {
+        padding: 20px 15px;
+      }
+
+      .info-table td {
+        padding: 12px 15px;
+      }
+
+      .info-table td:first-child {
+        width: 120px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>第n回 サンプルイベント</h1>
+      <p>お申し込みありがとうございます</p>
+    </div>
+
+    <div class="content">
+      <div class="timestamp">受付日時: <?= dateStr ?></div>
+
+      <div class="thank-you">
+        <p>第n回 サンプルイベント参加申し込みフォームにご記入いただき、ありがとうございました。</p>
+      </div>
+
+      <p>以下の内容で申し込みを受け付けましたので、ご確認ください。</p>
+
+      <table class="info-table">
+        <tr>
+          <td>参加者名</td>
+          <td><?= participants || '（未記入）' ?></td>
+        </tr>
+        <tr>
+          <td>所属団体</td>
+          <td><?= group || '個人参加' ?></td>
+        </tr>
+        <tr>
+          <td>同伴者数</td>
+          <td><?= companion ?></td>
+        </tr>
+        <tr>
+          <td>認知経路</td>
+          <td><?= opportunity || '（未記入）' ?></td>
+        </tr>      
+        <tr>
+          <td>コメント</td>
+          <td><?= comment || '（なし）' ?></td>
+        </tr>
+      </table>
+
+      <!--コメントアウトすると、熱中症対策についてのhtmlが消える.コメントアウトの開始がこの行. 下に進むと"この行も消す"と書いてある行までがコメントアウト部分
+      <div class="info-section">
+        <div class="info-section-title">熱中症対策についてのお願い</div>
+        <p>
+          イベント当日は気温が高くなることが予想されます。<br>
+          安全に楽しく活動いただくため、以下の点にご注意ください。
+        </p>
+        <ul>
+          <li>
+            <strong>水分補給をこまめに行ってください。</strong><br>のどが渇いていなくても、こまめに水分を摂るように心がけてください。会場にも給水ポイントを設ける予定ですが、ご自身でも飲み物をご持参いただきますようお願いします。
+          </li>
+          <li><strong>涼しい服装でご参加ください。</strong><br>風通しの良い、吸湿性・速乾性のある服装での参加を推奨します。<br>必要な方は、帽子や日傘等もご用意ください。</li>
+          <li><strong>体調を最優先にご参加ください。</strong><br>体調がすぐれない場合は、すぐにお近くのスタッフにお声がけください。<br>少しでも気分が悪くなったら、無理せず休憩をお取りください。
+          </li>
+          <li>
+            <strong>お子様の参加について</strong><br>お子様は大人よりも熱中症になりやすい傾向があります。<br>保護者の方はお子様の体調に十分ご注意いただき、こまめな水分補給や休憩の声かけをお願いいたします。
+          </li>
+        </ul>
+        <p>詳細につきましては、以下のサイトをご覧ください。<br>
+          <a href="https://www.cfa.go.jp/policies/child-safety-actions/cases/netchusho"target="_blank">みんなで見守り「こどもの熱中症」を防ぎましょう！｜こども家庭庁<br></a>
+          <a href="https://www.mhlw.go.jp/seisakunitsuite/bunya/kenkou_iryou/kenkou/nettyuu/nettyuu_taisaku/"target="_blank">熱中症予防のための情報・資料サイト | 厚生労働省</a>
+        </p>
+      </div>
+      この行も消す-->
+      <div class="notice">
+        <div class="notice-title">ご注意</div>
+        <p>
+          このメールは自動送信です。返信には対応できませんので予めご了承ください。<br>
+          本イベントについてお気づきの点がございましたら、下記メールアドレスまでお問い合わせください。
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      <p>主催: イベントプロジェクト実行委員会</p>
+      <p>共催: Google App Scriptサンプルプロジェクト協会</p>
+      <p>メールアドレス: hogehoge@sample.com</p>
+    </div>
+  </div>
+</body>
+
+</html>
